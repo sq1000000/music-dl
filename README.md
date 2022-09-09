@@ -13,7 +13,7 @@ I keep forgetting these flags exist, so I made an easier method to call it. Hope
     sudo false
   	wget https://raw.githubusercontent.com/sq1000000/music-dl/main/music-dl
   	sudo chmod +x music-dl
-  	sudo mv touchup /usr/bin/music-dl
+  	sudo mv music-dl /usr/bin/music-dl
   
 #### To run:
 
