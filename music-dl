@@ -1,9 +1,13 @@
-if command -v yt-dlp &> /dev/null; then
-  yt-dlp $1 --add-metadata --embed-thumbnail --output "%(playlist_index)s - %(track)s.%(ext)s"
+if [ -z "$1" ]; then
+  echo "music-dl: error: You must provide at least one URL."
 else
-  if command -v youtube-dl &> /dev/null; then
-    youtube-dl $1 --add-metadata --embed-thumbnail --output "%(playlist_index)s - %(track)s.%(ext)s"
+  if command -v yt-dlp &> /dev/null; then
+    yt-dlp $1 --add-metadata --embed-thumbnail --output "%(playlist_index)s - %(track)s.%(ext)s"
   else
-    echo "Download yt-dlp to use this program"
+    if command -v youtube-dl &> /dev/null; then
+      youtube-dl $1 --add-metadata --embed-thumbnail --output "%(playlist_index)s - %(track)s.%(ext)s"
+    else
+      echo "Download yt-dlp to use this program"
+    fi
   fi
 fi
