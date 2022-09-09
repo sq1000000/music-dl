@@ -1,0 +1,9 @@
+if command -v yt-dlp &> /dev/null; then
+  yt-dlp $1 --add-metadata --embed-thumbnail --output "%(playlist_index)s - %(track)s.%(ext)s"
+else
+  if command -v youtube-dl &> /dev/null; then
+    youtube-dl $1 --add-metadata --embed-thumbnail --output "%(playlist_index)s - %(track)s.%(ext)s"
+  else
+    echo "Download yt-dlp to use this program"
+  fi
+fi
